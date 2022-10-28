@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --White: hsl(0, 0%, 100%);
+    --Light_grayish_violet: hsl(270, 3%, 87%);
+    --Dark_grayish_violet: hsl(279, 6%, 55%);
+    --Very_dark_violet: hsl(278, 68%, 11%);
+    --Red: hsl(0, 100%, 66%);
+    --Linear_gradient: #6448fe to #600594;
+
+    --Very_dark_violet: hsl(278, 68%, 11%);
+}
+
+.bagroundColorImage {
+    background-image: url('/images/bg-main-desktop.png');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+
+.card-front-details {
+    background-image: url('/images/bg-card-front.png');
+    height: 200px;
+    width: 90%;
+}
+
+.card-back-details {
+    background-image: url('/images/bg-card-back.png');
+    height: 200px;
+    width: 90%;
+}
+
+.buttonBg {
+    background-color: var(--Very_dark_violet);
+}
+
+.dpCircle {
+    width: 40px;
+    height: 40px;
+}
+
+
+.dpCircleMini {
+    width:25px;
+    height:25px;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+@media only screen and (max-width: 769px) {
+    .bagroundColorImage {
+        background-image: url('/images/bg-main-mobile.png');
+        height: 250px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+
+    .card-front-details {
+        background-image: url('/images/bg-card-front.png');
+        height: 200px;
+        width: 90%;
+    }
+
+    .card-back-details {
+        background-image: url('/images/bg-card-back.png');
+        height: 200px;
+        width: 90%;
+    }
+
+    .cardContainer {
+        bottom: -90px;
+    }
+
+}
