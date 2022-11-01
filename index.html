@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- animate.css -->
     <link rel="stylesheet" href="/css/main.css" />
     <title>Card</title>
   </head>
@@ -18,95 +24,150 @@
               class="absolute flex flex-col-reverse right-0 left-0 max-w-md mx-auto cardContainer md:flex-col md:max-w-sm md:-right-44 lg:-right-64 lg:max-w-md"
             >
               <div
-                class="card-front-details bg-no-repeat bg-center bg-cover rounded-xl flex flex-col justify-between px-8 pt-7 pb-5 -mt-20 z-40 md:mt-0"
+                class="card-front-details animate__fadeInLeft bg-no-repeat bg-center bg-cover rounded-xl flex flex-col justify-between px-8 pt-7 pb-3 -mt-20 z-40 md:mt-0"
               >
                 <div class="flex flex-row items-center">
                   <div class="dpCircle rounded-full bg-white"></div>
                   <div
                     class="dpCircleMini rounded-full bg-transparent border-2 border-white ml-2 mt-1"
                   ></div>
-                </div> 
+                </div>
                 <div>
-                  <h1 class="text-2xl text-white">000000 00 00</h1>
-                  <div class="flex flex-row justify-between items-center  ">
-                    <h2 class="text-white text-md">Hamid Ali</h2>
-                    <h2 class="text-white text-md">90/28</h2>
+                  <h1
+                    class="text-2xl tracking-wider text-white md:text-2xl lg:text-3xl cardNumber"
+                  >
+                    0000 0000 0000 0000
+                  </h1>
+                  <div class="flex flex-row justify-between items-center mt-2">
+                    <h2 class="text-white text-md cardHolder">Name here</h2>
+                    <h2 class="text-white text-md flex">
+                      <span class="expDate">00</span>/20
+                      <span class="expireMonth">00</span>
+                    </h2>
                   </div>
                 </div>
               </div>
               <div
-                class="card-back-details bg-no-repeat bg-center bg-cover rounded-xl ml-auto mt-16 md:mt-6"
-              ></div>
+                class="card-back-details animate__fadeInRight relative bg-no-repeat bg-center bg-cover rounded-xl ml-auto mt-16 md:mt-6"
+              >
+                <h1
+                  class="text-lg absolute right-12 top-20 mt-1 text-white CVC"
+                >
+                  000
+                </h1>
+              </div>
             </div>
           </div>
           <div
             class="w-full py-2 flex flex-col justify-center md:ml-32 md:w-2/3"
           >
-            <div class="max-w-xs mt-32 mx-auto py-8 md:mt-12">
-              <form>
-                <label for="cardholder" class="block text-sm"
+            <div class="max-w-xs mt-32 mx-auto py-8 md:mt-12 con">
+              <form class="form animatefadeIn">
+                <label for="cardholder" class="block text-xs label1"
                   >CARDHOLDER NAME</label
                 ><input
                   type="text"
                   name="cardholder"
                   placeholder="eg:Jhon"
-                  class="w-full mt-1 border-2 py-1 px-1"
+                  onkeyup="inputvalue(event,'.cardHolder')"
+                  maxlength="16"
+                  class="chekCardholder w-full mt-1 border-2 py-1 px-1"
                 />
-                <label for="cardNumber" class="block text-sm mt-5"
+                <p class="alert tracking-wider text-red-600 text-md hidden">
+                  please fiil the fields or text only
+                </p>
+                <label for="cardNumber" class="block text-xs mt-5 label1"
                   >CARD NUMBER</label
                 ><input
                   type="number"
                   name="cardNumber"
                   placeholder="XXXXX"
-                  class="w-full mt-1 border-2 py-1 px-1"
+                  class="chekCardnumber w-full mt-1 border-2 py-1 px-1"
+                  onkeyup="inputvalue(event,'.cardNumber')"
+                  oninput="cardnumber(event)"
                 />
-
+                <p class="alert2 tracking-wider text-red-600 text-md hidden">
+                  cant`be blank or numbers should be 16
+                </p>
                 <div class="flex flex-row">
-                  <div>
-                    <label for="expireDate" class="block text-sm mt-5"
-                      >EXP. DATE
-                    </label>
-                    <input
-                      type="number"
-                      name="cardNumber"
-                      placeholder="MM"
-                      class="w-16 mt-1 border-2 py-1 px-1 rounded-t-md"
-                    />
-                  </div>
-                  <div>
-                    <label for="expireDate" class="block text-sm mt-5">
-                      (MM/YY)</label
-                    >
-                    <input
-                      type="number"
-                      name="cardNumber"
-                      placeholder="MM"
-                      class="w-16 mt-1 border-2 py-1 px-1 ml-2 rounded-t-md"
-                    />
+                  <div class="flex flex-col">
+                    <div class="flex flex-row">
+                      <div>
+                        <label for="expireDate" class="block text-xs mt-5"
+                          >EXP. DATE
+                        </label>
+                        <input
+                          type="number"
+                          name="expireDate"
+                          placeholder="MM"
+                          class="chekExpDate w-16 mt-1 border-2 py-1 px-1 rounded-t-md expireDateInput"
+                          onkeyup="inputvalue(event,'.expDate')"
+                          oninput="expiry(event)"
+                        />
+                      </div>
+                      <div>
+                        <label for="Date" class="block text-xs mt-5">
+                          (MM/YY)</label
+                        >
+                        <input
+                          type="number"
+                          name="expireMonth"
+                          placeholder="YY"
+                          class="chekMonth w-16 mt-1 border-2 py-1 px-1 ml-2 rounded-t-md"
+                          onkeyup="inputvalue(event,'.expireMonth')"
+                          oninput="expiry(event)"
+                        />
+                      </div>
+                    </div>
+                    <p class="alert3 alert4 text-red-600 text-xs hidden">
+                      cant`be blank
+                    </p>
                   </div>
                   <div class="ml-5">
-                    <label for="expireDate" class="block text-sm mt-5">
-                      CVC</label
-                    >
+                    <label for="CVC" class="block text-xs mt-5"> CVC</label>
                     <input
                       type="number"
-                      name="cardNumber"
-                      placeholder="MM"
-                      class="w-full mt-1 border-2 py-1 px-1 rounded-t-md"
+                      name="CVC"
+                      placeholder="eg 123"
+                      class="chekCvc w-full mt-1 border-2 py-1 px-1 rounded-t-md"
+                      onkeyup="inputvalue(event,'.CVC')"
+                      oninput="cvc(event)"
                     />
+                    <p class="alert5 text-red-600 text-xs hidden">
+                      cant`be blank
+                    </p>
                   </div>
                 </div>
                 <button
-                  type="submit"
                   class="buttonBg w-full rounded-lg mt-6 py-2 text-white"
+                  onclick="cardDetails(event)"
+                  value="submit"
                 >
                   Confirm
                 </button>
               </form>
+              <!-- confirmed section -->
+              <div
+                class="flex-col justify-between items-center hidden confirmed animatefadeIn"
+              >
+                <img src="images/icon-complete.svg" alt="coomplte " />
+                <h1 class="text-2xl tracking-wider mt-6">THANK YOU!</h1>
+                <p class="text-xl opacity-40 tracking-wider mt-6">
+                  We `ve added your card details
+                </p>
+                <button
+                  onclick="contin()"
+                  class="buttonBg w-full rounded-lg mt-6 py-2 text-white"
+                >
+                  Continue
+                </button>
+              </div>
+              <!-- confirmed section -->
             </div>
           </div>
         </div>
       </section>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>

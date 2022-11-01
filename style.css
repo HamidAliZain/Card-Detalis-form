@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'animate.css';
+
 :root {
     --White: hsl(0, 0%, 100%);
     --Light_grayish_violet: hsl(270, 3%, 87%);
@@ -45,9 +47,20 @@
 
 
 .dpCircleMini {
-    width:25px;
-    height:25px;
+    width: 25px;
+    height: 25px;
 }
+
+.animatefadeIn {
+    animation: fadeIn 2s forwards;
+}
+.animate__fadeInLeft {
+    animation: fadeInLeft 2s forwards;
+}
+.animate__fadeInRight{
+    animation: fadeInRight 2s forwards;
+}
+ 
 
 
 input::-webkit-outer-spin-button,
