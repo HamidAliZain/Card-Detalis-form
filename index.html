@@ -16,7 +16,7 @@
   <body>
     <main>
       <section>
-        <div class="flex flex-col md:flex-row">
+        <div class="flex flex-col md:flex-row overflow-hidden">
           <div
             class="bagroundColorImage relative w-full block flex-col justify-center md:flex md:w-1/3"
           >
@@ -63,13 +63,11 @@
           >
             <div class="max-w-xs mt-32 mx-auto py-8 md:mt-12 con">
               <form class="form animatefadeIn">
-                <label
-                  for="cardholder"
-                  id="cardholder"
-                  class="block text-xs label1"
+                <label for="cardholder" class="block text-xs label1"
                   >CARDHOLDER NAME</label
                 ><input
                   type="text"
+                  id="cardholder"
                   name="cardholder"
                   placeholder="eg:Jhon"
                   onkeyup="inputvalue(event,'.cardHolder')"
@@ -79,14 +77,12 @@
                 <p class="alert tracking-wider text-red-600 text-md hidden">
                   please fiil the fields or text only
                 </p>
-                <label
-                  for="cardNumber"
-                  id="cardNumber"
-                  class="block text-xs mt-5 label1"
+                <label for="cardNumber" class="block text-xs mt-5 label1"
                   >CARD NUMBER</label
                 ><input
                   type="number"
                   name="cardNumber"
+                  id="cardNumber"
                   placeholder="XXXXX"
                   class="chekCardnumber w-full mt-1 border-2 py-1 px-1"
                   onkeyup="inputvalue(event,'.cardNumber')"
@@ -99,13 +95,11 @@
                   <div class="flex flex-col">
                     <div class="flex flex-row">
                       <div>
-                        <label
-                          for="expireDate"
-                          id="expireDate"
-                          class="block text-xs mt-5"
+                        <label for="expireDate" class="block text-xs mt-5"
                           >EXP. DATE
                         </label>
                         <input
+                          id="expireDate"
                           type="number"
                           name="expireDate"
                           placeholder="MM"
@@ -115,10 +109,11 @@
                         />
                       </div>
                       <div>
-                        <label for="Date" id="Date" class="block text-xs mt-5">
+                        <label for="Date" class="block text-xs mt-5">
                           (MM/YY)</label
                         >
                         <input
+                          id="Date"
                           type="number"
                           name="expireMonth"
                           placeholder="YY"
@@ -133,11 +128,10 @@
                     </p>
                   </div>
                   <div class="ml-5">
-                    <label for="CVC" id="CVC" class="block text-xs mt-5">
-                      CVC</label
-                    >
+                    <label for="CVC" class="block text-xs mt-5"> CVC</label>
                     <input
                       type="number"
+                      id="CVC"
                       name="CVC"
                       placeholder="eg 123"
                       class="chekCvc w-full mt-1 border-2 py-1 px-1 rounded-t-md"

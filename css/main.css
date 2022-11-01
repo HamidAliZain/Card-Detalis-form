@@ -682,6 +682,14 @@ video {
   justify-content: space-between;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-clip {
+  overflow: clip;
+}
+
 .rounded-xl {
   border-radius: 0.75rem;
 }
